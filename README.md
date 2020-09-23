@@ -4,7 +4,7 @@ Sept. 2020 - Frontend Developer Technical Test
 The goal of this test is to assess your familiarity with React, React Native, Redux, Hooks & CSS. You'll be building a mobile app that shows a list of restaurants in a 3km radius of the current user's position using a mock API.
 
 ## Task
-Your task is to build a mobile app that asks permission to access the user's position, collects the user position, shows a list of restaurants nearby and a restaurant's detail when a user clicks on a restaurant list item. Here are the screens to implement:
+Your task is to build a mobile app (using [the mockups provided](/mockup.pdf)) that asks permission to access the user's position, collects the user position, shows a list of restaurants nearby and a restaurant's detail when a user clicks on a restaurant list item. Here are the screens to implement:
 * Onboarding Screen: Explain what the app does and ask for the user's position.
 * Restaurant List Screen: Show a list of restaurants in a 3km radius of the user using a mock API.
 * Restaurant Detail Screen: Show basic information about a selected restaurant.
@@ -17,5 +17,5 @@ The following constraints should be respected for your submission to be consider
 * You may only use a mock API for displaying the data to the user.
 
 ## Submission
-To submit your work, send us a link to a git repository containing the code of your submission. The deadline for submissions is on **Sunday 27th September 2020**.
+To submit your work, send us a link to a git repository containing the code of your submission. The deadline for submissions is on **Tuesday 29th September 2020**.
 Feel free to ask us any questions before or during the coding test, we'll be happy to help in any way we can.
