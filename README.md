@@ -1,4 +1,4 @@
-Sept. 2020 - Frontend Developer Technical Test
+Feb. 2021 - Frontend Developer Technical Test
 ==============================================
 
 The goal of this test is to assess your familiarity with React, React Native, Redux, Hooks & CSS. You'll be building a mobile app that shows a list of restaurants in a 3km radius of the current user's position using a mock API.
@@ -17,5 +17,5 @@ The following constraints should be respected for your submission to be consider
 * You may only use a mock API for displaying the data to the user.
 
 ## Submission
-To submit your work, send us a link to a git repository containing the code of your submission. The deadline for submissions is on **Tuesday 29th September 2020**.
+To submit your work, send us a link to a git repository containing the code of your submission. The deadline for submissions is on **Tuesday 09th February 2021**.
 Feel free to ask us any questions before or during the coding test, we'll be happy to help in any way we can.
