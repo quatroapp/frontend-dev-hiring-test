@@ -3,6 +3,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Main from './components/Main'
+import Delivery from './components/Delivery'
 import RestoList from './components/RestoList'
 import RestoDetails from './components/RestoDetails'
 
@@ -13,6 +14,7 @@ export default function App() {
     <NavigationContainer>
       <RoutesStack.Navigator initialRouteName="Home">
         <RoutesStack.Screen name="Main" component={Main} />
+        <RoutesStack.Screen name="Delivery" component={Delivery} />
         <RoutesStack.Screen name="RestoList" component={RestoList} />
         <RoutesStack.Screen name="RestoDetails" component={RestoDetails} />
       </RoutesStack.Navigator>

@@ -6,6 +6,8 @@ import splash_img from '../assets/splash_image.png';
 export default function Main({ navigation }) {
     return (
         <View style={styles.container}>
+            <Text style={{padding: 10}}> Skip </Text>
+
             <Image source={splash_img} style={styles.splash_image}/>
 
             <Text style={styles.title}>
@@ -16,11 +18,17 @@ export default function Main({ navigation }) {
                 Our app helps you dinf the right food for every mood, any time & any day
             </Text>
 
-            <Button
-                onPress={() => navigation.navigate('RestoList')}
+            <View styles={styles.button_space}>
+              <Button
                 style={styles.button}
-                title="Start finding !"
-            />
+                title="..."
+              />
+              <Button
+                onPress={() => navigation.navigate('Delivery')}
+                style={styles.button}
+                title="->"
+              />
+            </View>
 
             <StatusBar style="auto" />
         </View>
@@ -40,18 +48,15 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     splash_image: {
-      width: 500,
-      height: 400,
-      marginTop: -100,
-      marginBottom: 50
+      width: 330,
+      height: 380,
     },
     button: {
       backgroundColor: '#2180EF',
-      padding: 20,
       borderRadius: 5,
     },
-    buttonText: {
-      fontSize: 20,
-      color: '#fff'
-    }
+    button_space: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
 });
