@@ -6,8 +6,8 @@ export default function RestoDetails({ navigation }) {
         <View style={styles.restoDetails}>
             <Text> Resto Details </Text>
             <Button
-                title="See resto details"
-                onPress={() => navigation.navigate('RestoList')}
+                title="Go back to list"
+                onPress={() => navigation.goBack()}
             />
         </View>
     );

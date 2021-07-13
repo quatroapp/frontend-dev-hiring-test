@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { LogBox } from 'react-native';
 import Main from './components/Main'
 import RestoList from './components/RestoList'
+import RestoDetails from './components/RestoDetails'
 
 // LogBox.ignoreLogs(['Remote debugger']);
 
@@ -16,6 +17,7 @@ export default function App() {
       <RoutesStack.Navigator initialRouteName="Home">
         <RoutesStack.Screen name="Main" component={Main} />
         <RoutesStack.Screen name="RestoList" component={RestoList} />
+        <RoutesStack.Screen name="RestoDetails" component={RestoDetails} />
       </RoutesStack.Navigator>
     </NavigationContainer>
   );
