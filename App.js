@@ -2,12 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { LogBox } from 'react-native';
 import Main from './components/Main'
 import RestoList from './components/RestoList'
 import RestoDetails from './components/RestoDetails'
-
-// LogBox.ignoreLogs(['Remote debugger']);
 
 const RoutesStack = createStackNavigator();
 
