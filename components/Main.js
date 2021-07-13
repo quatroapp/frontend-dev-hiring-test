@@ -1,28 +1,28 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, Text, View, Button } from 'react-native';
 import splash_img from '../assets/splash_image.png';
 
-export default function Main() {
+export default function Main({ navigation }) {
     return (
         <View style={styles.container}>
-        <Image source={splash_img} style={styles.splash_image}/>
+            <Image source={splash_img} style={styles.splash_image}/>
 
-        <Text style={styles.title}>
-            Find The Food You Want
-        </Text>
+            <Text style={styles.title}>
+                Find The Food You Want
+            </Text>
 
-        <Text style={{fontSize: 30, justifyContent: 'center', marginBottom: 150}}>
-            Our app helps you dinf the right food for every mood, any time & any day
-        </Text>
+            <Text style={{fontSize: 30, justifyContent: 'center', marginBottom: 150}}>
+                Our app helps you dinf the right food for every mood, any time & any day
+            </Text>
 
-        <TouchableOpacity
-            onPress={() => alert('Hello, world!')}
-            style={styles.button}>
-            <Text style={styles.buttonText}>Start finding !</Text>
-        </TouchableOpacity>
+            <Button
+                onPress={() => navigation.navigate('RestoList')}
+                style={styles.button}
+                title="Start finding !"
+            />
 
-        <StatusBar style="auto" />
+            <StatusBar style="auto" />
         </View>
     );
 };
