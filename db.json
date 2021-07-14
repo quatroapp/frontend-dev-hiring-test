@@ -1,68 +1,70 @@
-[
-  {
-    "id": 1,
-    "userId": 101,
-    "name": "Ahmed",
-    "location": "7929 Padberg Key"
-  },
-  {
-    "id": 2,
-    "userId": 102,
-    "name": "Jeff",
-    "location": "957 DuBuque Greens"
-  },
-  {
-    "id": 3,
-    "userId": 103,
-    "name": "Constance",
-    "location": "31850 Rice Highway"
-  },
-  {
-    "id": 4,
-    "userId": 104,
-    "name": "Jesus",
-    "location": "980 Paige Passage"
-  },
-  {
-    "id": 5,
-    "userId": 105,
-    "name": "Abigail",
-    "location": "937 Ebert Overpass"
-  },
-  {
-    "id": 6,
-    "userId": 106,
-    "name": "Garland",
-    "location": "20270 Ruecker Fall"
-  },
-  {
-    "id": 7,
-    "userId": 107,
-    "name": "Therese",
-    "location": "3062 Wunsch Lock"
-  },
-  {
-    "id": 8,
-    "userId": 108,
-    "name": "Celestine",
-    "location": "15203 Theron Plaza"
-  },
-  {
-    "id": 9,
-    "userId": 109,
-    "name": "Andy",
-    "location": "101 Barton Landing"
-  },
-  {
-    "id": 10,
-    "userId": 110,
-    "name": "Corrine",
-    "location": "579 Marks Springs"
-  },
-  {
-    "id": 11,
-    "userId": 111,
-    "name": "Rosemary",
-    "location": "95256 Harrison Views"
-  }
-]
+{
+  "restos": [
+    {
+      "id": 1,
+      "userId": 101,
+      "name": "Ahmed",
+      "location": "7929 Padberg Key"
+    },
+    {
+      "id": 2,
+      "userId": 102,
+      "name": "Jeff",
+      "location": "957 DuBuque Greens"
+    },
+    {
+      "id": 3,
+      "userId": 103,
+      "name": "Constance",
+      "location": "31850 Rice Highway"
+    },
+    {
+      "id": 4,
+      "userId": 104,
+      "name": "Jesus",
+      "location": "980 Paige Passage"
+    },
+    {
+      "id": 5,
+      "userId": 105,
+      "name": "Abigail",
+      "location": "937 Ebert Overpass"
+    },
+    {
+      "id": 6,
+      "userId": 106,
+      "name": "Garland",
+      "location": "20270 Ruecker Fall"
+    },
+    {
+      "id": 7,
+      "userId": 107,
+      "name": "Therese",
+      "location": "3062 Wunsch Lock"
+    },
+    {
+      "id": 8,
+      "userId": 108,
+      "name": "Celestine",
+      "location": "15203 Theron Plaza"
+    },
+    {
+      "id": 9,
+      "userId": 109,
+      "name": "Andy",
+      "location": "101 Barton Landing"
+    },
+    {
+      "id": 10,
+      "userId": 110,
+      "name": "Corrine",
+      "location": "579 Marks Springs"
+    },
+    {
+      "id": 11,
+      "userId": 111,
+      "name": "Rosemary",
+      "location": "95256 Harrison Views"
+    }
+  ]
+}
