@@ -12,7 +12,7 @@ const RoutesStack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <RoutesStack.Navigator initialRouteName="RestoList">
+      <RoutesStack.Navigator initialRouteName="Main">
         <RoutesStack.Screen name="Main" component={Main} />
         <RoutesStack.Screen name="Delivery" component={Delivery} />
         <RoutesStack.Screen name="RestoList" component={RestoList} />

@@ -8,7 +8,7 @@ export default function RestoList({ navigation }) {
     const [restos, setRestos] = useState([]);
 
     useEffect(() => {
-      fetch('https://jsonplaceholder.typicode.com/posts')
+      fetch("https://my-json-server.typicode.com/blacky-yg/frontend-dev-hiring-test/restos")
         .then((response) => response.json())
         .then((responseJson) => {
           setFilteredResto(responseJson);
