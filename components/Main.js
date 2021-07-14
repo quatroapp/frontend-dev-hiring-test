@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Image, StyleSheet, Text, View, Button } from 'react-native';
+import { Image, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import splash_img from '../assets/splash_image.png';
 
 export default function Main({ navigation }) {
@@ -18,13 +18,14 @@ export default function Main({ navigation }) {
                 Our app helps you dinf the right food for every mood, any time & any day
             </Text>
 
-            <View styles={styles.button_space}>
+            <TouchableOpacity
+                style={styles.touchable}
+            >
               <Button
-                onPress={() => navigation.navigate('Delivery')}
-                style={styles.button}
-                title="->"
+                  onPress={() => navigation.navigate('Delivery')}
+                  title=">"
               />
-            </View>
+            </TouchableOpacity>
 
             <StatusBar style="auto" />
         </View>
@@ -60,12 +61,14 @@ const styles = StyleSheet.create({
       width: 330,
       height: 380,
     },
-    button: {
+    touchable: {
+      borderWidth: 1,
+      borderColor: '#2180EF',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: 50,
+      height: 50,
       backgroundColor: '#2180EF',
-      borderRadius: 5,
-    },
-    button_space: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-    },
+      borderRadius: 50
+    }
 });
