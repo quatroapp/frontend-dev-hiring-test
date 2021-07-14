@@ -6,7 +6,13 @@ import splash_img from '../assets/splash_image.png';
 export default function Main({ navigation }) {
     return (
         <View style={styles.container}>
-            <Text style={styles.navigationRight}> Skip </Text>
+
+            <TouchableOpacity
+              style={styles.navigationRight}
+              onPress={() => navigation.navigate('RestoList')}
+            >
+              <Text style={styles.skip}>Skip</Text>
+            </TouchableOpacity>
 
             <Image source={splash_img} style={styles.splash_image}/>
 
@@ -40,8 +46,9 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     navigationRight: {
-      fontSize: 30,
-      alignSelf: 'flex-end'
+      fontSize: 40,
+      alignSelf: 'flex-end',
+      color: '#fff'
     },
     title: {
       color: '#2180EF',
@@ -70,5 +77,10 @@ const styles = StyleSheet.create({
       height: 50,
       backgroundColor: '#2180EF',
       borderRadius: 50
+    },
+    skip: {
+      fontSize: 30,
+      alignSelf: 'flex-end',
+      marginRight: 20
     }
 });

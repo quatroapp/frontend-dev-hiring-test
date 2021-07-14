@@ -5,9 +5,23 @@ import delivery_img from '../assets/delivery_image.png';
 export default function Delivery({ navigation }) {
     return (
         <View style={styles.restos}>
+
             <View style={styles.button_space}>
-                <Text style={styles.navigationLeft}> Back </Text>
-                <Text style={styles.navigationRight}> Skip </Text>
+
+                <TouchableOpacity
+                    style={styles.navigationLeft}
+                    onPress={() => navigation.goBack()}
+                >
+                    <Text style={styles.back}>Back</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={styles.navigationRight}
+                    onPress={() => navigation.navigate('RestoList')}
+                >
+                    <Text style={styles.skip}>Skip</Text>
+                </TouchableOpacity>
+
             </View>
 
             <Image source={delivery_img} style={styles.delivery_image}/>
@@ -80,5 +94,13 @@ const styles = StyleSheet.create({
         height: 50,
         backgroundColor: '#2180EF',
         borderRadius: 50
+    },
+    skip: {
+        fontSize: 30,
+        alignSelf: 'flex-end',
+    },
+    back: {
+        fontSize: 30,
+        alignSelf: 'flex-end',
     }
 });
