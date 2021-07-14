@@ -6,7 +6,7 @@ import splash_img from '../assets/splash_image.png';
 export default function Main({ navigation }) {
     return (
         <View style={styles.container}>
-            <Text style={{padding: 10}}> Skip </Text>
+            <Text style={styles.navigationRight}> Skip </Text>
 
             <Image source={splash_img} style={styles.splash_image}/>
 
@@ -14,15 +14,11 @@ export default function Main({ navigation }) {
                 Find The Food You Want
             </Text>
 
-            <Text style={{fontSize: 30, justifyContent: 'center', marginBottom: 150}}>
+            <Text style={styles.description}>
                 Our app helps you dinf the right food for every mood, any time & any day
             </Text>
 
             <View styles={styles.button_space}>
-              <Button
-                style={styles.button}
-                title="..."
-              />
               <Button
                 onPress={() => navigation.navigate('Delivery')}
                 style={styles.button}
@@ -42,10 +38,23 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    navigationRight: {
+      fontSize: 30,
+      alignSelf: 'flex-end'
+    },
     title: {
       color: '#2180EF',
       fontSize: 50,
-      alignItems: 'center',
+      textAlign: 'center',
+      fontWeight: 'bold',
+      marginHorizontal: 70
+    },
+    description: {
+      fontSize: 20,
+      justifyContent: 'center',
+      marginBottom: 150,
+      marginHorizontal: 40,
+      textAlign: 'center'
     },
     splash_image: {
       width: 330,
