@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, View, Text, StyleSheet, FlatList, Dimensions } from 'react-native';
+import { Image, View, Text, StyleSheet, FlatList, Dimensions, ScrollView } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
@@ -60,11 +60,19 @@ export default function RestoList({ navigation }) {
 
     const RestoView = ({ item }) => {
       return (
-        <Text style={styles.restoStyle} onPress={() => getResto(item)}>
-        {item.id}
-        {'.'}
-        {item.name.toUpperCase()}
-        </Text>
+        <View>
+          <Text style={styles.restoStyle} onPress={() => getResto(item)}>
+            {item.id}
+            {'.'}
+            <Image
+              style={styles.tinyLogo}
+              source={{
+                uri: 'http://placeimg.com/640/480/sports'
+              }}
+            />
+            {item.name.toUpperCase()}
+          </Text>
+        </View>
       );
     };
 
@@ -94,24 +102,25 @@ export default function RestoList({ navigation }) {
           placeholder="Search Resto here..."
           value={search}
         />
-        <MapView style={styles.map}
-          initialRegion={{
-            latitude: location?.coords?.latitude,
-            longitude: location?.coords?.longitude,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421
-          }}
-        />
-        {/* {console.log(text)} */}
-        <FlatList
-          data={filteredResto}
-          keyExtractor={(item, index) => index.toString()}
-          ItemSeparatorComponent={RestoSeparatorView}
-          renderItem={RestoView}
-        />
+        <ScrollView>
+          <MapView style={styles.map}
+            initialRegion={{
+              latitude: location?.coords?.latitude,
+              longitude: location?.coords?.longitude,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421
+            }}
+          />
+          <FlatList
+            data={filteredResto}
+            keyExtractor={(item, index) => index.toString()}
+            ItemSeparatorComponent={RestoSeparatorView}
+            renderItem={RestoView}
+          />
+        </ScrollView>
       </View>
     );
-  };
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -126,5 +135,9 @@ const styles = StyleSheet.create({
   map: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height - 400,
+  },
+  tinyLogo: {
+    width: 50,
+    height: 50,
   },
 });
