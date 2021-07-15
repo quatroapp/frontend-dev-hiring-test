@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Image, View, Text, StyleSheet, FlatList, Dimensions, ScrollView } from 'react-native';
+import { Image, View, Text, StyleSheet, FlatList, Dimensions, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
+
 import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
 
@@ -60,18 +61,32 @@ export default function RestoList({ navigation }) {
 
     const RestoView = ({ item }) => {
       return (
-        <View>
-          <Text style={styles.restoStyle} onPress={() => getResto(item)}>
-            {item.id}
-            {'.'}
+        <View style={styles.resto} onPress={() => getResto(item)}>
+
+          <TouchableOpacity onPress={() => getResto(item)}>
+
             <Image
               style={styles.tinyLogo}
               source={{
-                uri: 'http://placeimg.com/640/480/sports'
+                uri: item.image
               }}
             />
+          </TouchableOpacity>
+
+          <Text style={styles.restoStyle} onPress={() => getResto(item)}>
             {item.name.toUpperCase()}
           </Text>
+
+          <Text style={{
+              fontSize: 10,
+              marginLeft: -60,
+              marginTop: 30
+            }}
+            onPress={() => getResto(item)}
+            >
+              {item.location}
+          </Text>
+
         </View>
       );
     };
@@ -80,9 +95,9 @@ export default function RestoList({ navigation }) {
       return (
         <View
           style={{
-            height: 0.5,
+            height: 20,
+            justifyContent: 'space-between',
             width: '100%',
-            backgroundColor: '#C8C8C8',
           }}
         />
       );
@@ -131,13 +146,19 @@ const styles = StyleSheet.create({
   },
   restoStyle: {
     padding: 10,
+    flexDirection: 'column',
+    marginLeft: 40
   },
   map: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height - 400,
+    marginBottom: 10
   },
   tinyLogo: {
     width: 50,
     height: 50,
   },
+  resto: {
+    flexDirection: 'row',
+  }
 });
