@@ -31,7 +31,7 @@ export default function RestoList({ navigation }) {
         .catch((error) => {
           console.error(error);
         });
-    }, []);
+    }, [location]);
 
     let text = 'Waiting..';
 
@@ -96,12 +96,13 @@ export default function RestoList({ navigation }) {
         />
         <MapView style={styles.map}
           initialRegion={{
-            latitude: 6.3609772,
-            longitude: 2.4344471,
+            latitude: location?.coords?.latitude,
+            longitude: location?.coords?.longitude,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421
           }}
         />
+        {/* {console.log(text)} */}
         <FlatList
           data={filteredResto}
           keyExtractor={(item, index) => index.toString()}
