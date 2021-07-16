@@ -108,7 +108,10 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     margin: 12,
-    borderWidth: 1,
+    borderWidth: 2,
+    borderRadius: 20,
+    padding: 13,
+    borderColor: '#2180EF'
   },
   restoStyle: {
     padding: 10,
