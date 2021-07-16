@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Image, View, Text, StyleSheet, FlatList, Dimensions, ScrollView, TextInput, TouchableOpacity } from 'react-native';
-import { SearchBar } from 'react-native-elements';
-
+import { Image, View, SafeView, Text, FlatList, SectionList, StyleSheet, Dimensions, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
 
@@ -19,7 +17,7 @@ export default function RestoList({ navigation }) {
           setErrorMsg('Permission to access location was denied');
           return;
         }
-        let location = await Location.getCurrentPositionAsync({});
+        let location = await Location.getCurrentPositionAsync({accuracy:Location.Accuracy.High});
         setLocation(location);
       })();
 
@@ -109,15 +107,17 @@ export default function RestoList({ navigation }) {
 
     return (
       <View style={styles.container}>
-        <SearchBar
-          round
-          searchIcon={{ size: 24 }}
+        <TextInput
+          style={styles.input}
           onChangeText={(text) => searchFilterFunction(text)}
           onClear={(text) => searchFilterFunction('')}
-          placeholder="Search Resto here..."
           value={search}
+          placeholder="Search Resto here..."
         />
-        <ScrollView>
+
+      <ScrollView nestedScrollEnabled={true}>
+
+        <View>
           <MapView style={styles.map}
             initialRegion={{
               latitude: location?.coords?.latitude,
@@ -126,13 +126,17 @@ export default function RestoList({ navigation }) {
               longitudeDelta: 0.0421
             }}
           />
-          <FlatList
-            data={filteredResto}
-            keyExtractor={(item, index) => index.toString()}
-            ItemSeparatorComponent={RestoSeparatorView}
-            renderItem={RestoView}
-          />
-        </ScrollView>
+        </View>
+
+        <FlatList
+          scrollEnabled={false}
+          data={filteredResto}
+          keyExtractor={(item, index) => index.toString()}
+          ItemSeparatorComponent={RestoSeparatorView}
+          renderItem={RestoView}/>
+
+      </ScrollView>
+
       </View>
     );
 };
@@ -143,6 +147,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     justifyContent: 'center',
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
   },
   restoStyle: {
     padding: 10,
