@@ -69,20 +69,12 @@ export default function RestoList({ navigation }) {
                 uri: item.image
               }}
             />
+
           </TouchableOpacity>
 
           <Text style={styles.restoStyle} onPress={() => getResto(item)}>
-            {item.name.toUpperCase()}
-          </Text>
-
-          <Text style={{
-              fontSize: 10,
-              marginLeft: -60,
-              marginTop: 30
-            }}
-            onPress={() => getResto(item)}
-            >
-              {item.location}
+            {item.name.toUpperCase()} |
+            {item.location}
           </Text>
 
         </View>
@@ -102,7 +94,7 @@ export default function RestoList({ navigation }) {
     };
 
     const getResto = (resto) => {
-        alert('Resto : ' + resto.id + ' Name : ' + resto.name);
+      alert('Resto : ' + resto.id + ' Name : ' + resto.name);
     };
 
     return (
@@ -115,27 +107,27 @@ export default function RestoList({ navigation }) {
           placeholder="Search Resto here..."
         />
 
-      <ScrollView nestedScrollEnabled={true}>
+        <ScrollView nestedScrollEnabled={true}>
 
-        <View>
-          <MapView style={styles.map}
-            initialRegion={{
-              latitude: location?.coords?.latitude,
-              longitude: location?.coords?.longitude,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421
-            }}
-          />
-        </View>
+          <View>
+            <MapView style={styles.map}
+              initialRegion={{
+                latitude: location?.coords?.latitude,
+                longitude: location?.coords?.longitude,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421
+              }}
+            />
+          </View>
 
-        <FlatList
-          scrollEnabled={false}
-          data={filteredResto}
-          keyExtractor={(item, index) => index.toString()}
-          ItemSeparatorComponent={RestoSeparatorView}
-          renderItem={RestoView}/>
+          <FlatList
+            scrollEnabled={false}
+            data={filteredResto}
+            keyExtractor={(item, index) => index.toString()}
+            ItemSeparatorComponent={RestoSeparatorView}
+            renderItem={RestoView}/>
 
-      </ScrollView>
+        </ScrollView>
 
       </View>
     );
@@ -155,8 +147,10 @@ const styles = StyleSheet.create({
   },
   restoStyle: {
     padding: 10,
-    flexDirection: 'column',
-    marginLeft: 40
+    flexDirection: 'row',
+    marginLeft: 10,
+    marginTop: 7,
+    textAlign: 'center'
   },
   map: {
     width: Dimensions.get('window').width,
@@ -169,5 +163,6 @@ const styles = StyleSheet.create({
   },
   resto: {
     flexDirection: 'row',
+    padding: 5
   }
 });
