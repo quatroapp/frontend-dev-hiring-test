@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Image, View, SafeView, Text, FlatList, SectionList, StyleSheet, Dimensions, ScrollView, TextInput, TouchableOpacity } from 'react-native';
+import { View, FlatList, StyleSheet, Dimensions, ScrollView, TextInput } from 'react-native';
 import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
+import RestoDetails from './RestoDetails'
 
 export default function RestoList({ navigation }) {
     const [search, setSearch] = useState('');
@@ -32,14 +33,6 @@ export default function RestoList({ navigation }) {
         });
     }, [location]);
 
-    let text = 'Waiting..';
-
-    if (errorMsg) {
-      text = errorMsg;
-    } else if (location) {
-      text = JSON.stringify(location);
-    }
-
     const searchFilterFunction = (text) => {
       if (text) {
         const newData = restos.filter(function (item) {
@@ -57,30 +50,6 @@ export default function RestoList({ navigation }) {
       }
     };
 
-    const RestoView = ({ item }) => {
-      return (
-        <View style={styles.resto} onPress={() => getResto(item)}>
-
-          <TouchableOpacity onPress={() => getResto(item)}>
-
-            <Image
-              style={styles.tinyLogo}
-              source={{
-                uri: item.image
-              }}
-            />
-
-          </TouchableOpacity>
-
-          <Text style={styles.restoStyle} onPress={() => getResto(item)}>
-            {item.name.toUpperCase()} |
-            {item.location}
-          </Text>
-
-        </View>
-      );
-    };
-
     const RestoSeparatorView = () => {
       return (
         <View
@@ -91,10 +60,6 @@ export default function RestoList({ navigation }) {
           }}
         />
       );
-    };
-
-    const getResto = (resto) => {
-      alert('Resto : ' + resto.id + ' Name : ' + resto.name);
     };
 
     return (
@@ -125,7 +90,7 @@ export default function RestoList({ navigation }) {
             data={filteredResto}
             keyExtractor={(item, index) => index.toString()}
             ItemSeparatorComponent={RestoSeparatorView}
-            renderItem={RestoView}/>
+            renderItem={RestoDetails}/>
 
         </ScrollView>
 
