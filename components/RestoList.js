@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, FlatList, StyleSheet, Dimensions, ScrollView, TextInput } from 'react-native';
+import { View, FlatList, StyleSheet, Dimensions, TextInput, ActivityIndicator, SafeAreaView, ScrollView } from 'react-native';
 import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
 import RestoDetails from './RestoDetails'
@@ -52,50 +52,47 @@ export default function RestoList({ navigation }) {
 
     const RestoSeparatorView = () => {
       return (
-        <View
-          style={{
-            height: 20,
-            justifyContent: 'space-between',
-            width: '100%',
-          }}
-        />
+        <View style={styles.restoSep} />
       );
     };
 
     return (
       <View style={styles.container}>
-        <TextInput
-          style={styles.input}
-          onChangeText={(text) => searchFilterFunction(text)}
-          onClear={(text) => searchFilterFunction('')}
-          value={search}
-          placeholder="Search Resto here..."
-        />
+        <View>
+          <TextInput
+            style={styles.input}
+            onChangeText={(text) => searchFilterFunction(text)}
+            onClear={(text) => searchFilterFunction('')}
+            value={search}
+            placeholder="Search Resto here..."
+          />
+        </View>
 
-        <ScrollView nestedScrollEnabled={true}>
-
+        <ScrollView>
           <View>
-            <MapView style={styles.map}
-              initialRegion={{
-                latitude: location?.coords?.latitude,
-                longitude: location?.coords?.longitude,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421
-              }}
-            />
+            {
+              location?.coords?.latitude ? (
+                <MapView style={styles.map}
+                  initialRegion={{
+                    latitude: location?.coords?.latitude,
+                    longitude: location?.coords?.longitude,
+                    latitudeDelta: 0.0922,
+                    longitudeDelta: 0.0421
+                }}
+            /> ) : (
+              <ActivityIndicator size="small" color="black" /> )
+            }
           </View>
 
           <FlatList
-            scrollEnabled={false}
             data={filteredResto}
             keyExtractor={(item, index) => index.toString()}
             ItemSeparatorComponent={RestoSeparatorView}
             renderItem={RestoDetails}/>
 
         </ScrollView>
-
       </View>
-    );
+  );
 };
 
 const styles = StyleSheet.create({
@@ -103,7 +100,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     flex: 1,
     backgroundColor: 'white',
-    justifyContent: 'center',
+    position: "relative"
   },
   input: {
     height: 40,
@@ -111,7 +108,8 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 20,
     padding: 13,
-    borderColor: '#2180EF'
+    borderColor: '#2180EF',
+    top: 0,
   },
   restoStyle: {
     padding: 10,
@@ -123,7 +121,8 @@ const styles = StyleSheet.create({
   map: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height - 400,
-    marginBottom: 10
+    marginBottom: 10,
+    position: "relative"
   },
   tinyLogo: {
     width: 50,
@@ -132,5 +131,10 @@ const styles = StyleSheet.create({
   resto: {
     flexDirection: 'row',
     padding: 5
+  },
+  restoSep: {
+    height: 20,
+    justifyContent: 'space-between',
+    width: '100%'
   }
 });
