@@ -21,10 +21,17 @@ export default function RestoDetails({ item }) {
 
         </TouchableOpacity>
 
-        <Text style={styles.restoStyle} onPress={() => getResto(item)}>
-          {item.name.toUpperCase()} |
-          {item.location}
-        </Text>
+        <View style={styles.text} onPress={() => getResto(item)}>
+
+          <Text style={styles.restoStyle} onPress={() => getResto(item)}>
+            {item.name.toUpperCase()}
+          </Text>
+
+          <Text style={styles.desc} onPress={() => getResto(item)}>
+            {item.location}
+          </Text>
+
+        </View>
 
       </View>
     );
@@ -40,10 +47,14 @@ const styles = StyleSheet.create({
     height: 50,
   },
   restoStyle: {
-    padding: 10,
-    flexDirection: 'row',
-    marginLeft: 10,
-    marginTop: 7,
-    textAlign: 'center'
+    marginTop: 2,
+    marginBottom: 2,
+    fontWeight: 'bold',
+    fontSize: 18
+  },
+  text: {
+    flexDirection: 'column',
+    textAlign: 'center',
+    marginLeft: 20,
   }
 });
