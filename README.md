@@ -17,5 +17,5 @@ The following constraints should be respected for your submission to be consider
 * You may only use a mock API for displaying the data to the user.
 
 ## Submission
-To submit your work, send us a link to a git repository containing the code of your submission. The deadline for submissions is on **Tuesday 09th February 2021**.
+To submit your work, send us a link to a git repository containing the code of your submission. The deadline for submissions is 3 days after you've been sent the test.
 Feel free to ask us any questions before or during the coding test, we'll be happy to help in any way we can.
